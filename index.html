@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SysNet Admin & Cybersecurity Specialist - Manufacturing Security Expert">
+    <title>SysNet Admin | Cybersecurity Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #73e9e9;           /* FIXED: removed alpha — now a solid, crisp cyan */
+            --primary-dark: #2bb8b8;
+            --secondary: #7cc0d4;
+            --accent: #ff0055;
+            --bg: #0a0e27;
+            --surface: #1a1f3a;
+            --text: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-border: #2a3a5a;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #050a16 0%, var(--bg) 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ---------- Navigation ---------- */
+        nav {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(115, 233, 233, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(115, 233, 233, 0.08) 0%, transparent 70%);
+            top: 10%;
+            left: 5%;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.08) 0%, transparent 70%);
+            bottom: 10%;
+            right: 5%;
+            animation: float 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* ---------- Profile Photo (small, round, centered) ---------- */
+        .profile-photo {
+            width: 110px;
+            height: 110px;
+            min-width: 110px;
+            max-width: 110px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border: 3px solid var(--primary);
+            object-fit: cover;
+            object-position: center 25%;
+            margin: 0 auto 1.5rem auto;
+            box-shadow: 0 0 20px rgba(115, 233, 233, 0.5);
+            animation: fadeInDown 1s ease-out;
+            display: block;
+            background: #1e2a3a;
+        }
+
+        .intro {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+          display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border: 2px solid var(--primary);
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg);
+            box-shadow: 0 0 20px rgba(115, 233, 233, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(115, 233, 233, 0.6);
+            transform: translateY(-2px);
+            background: #8af0f0;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--bg);
+            box-shadow: 0 0 30px rgba(115, 233, 233, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* ---------- Sections ---------- */
+        section {
+          padding: 3rem 0;
+    border-bottom: 1px solid rgba(115, 233, 233, 0.1);        }
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--text);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* ---------- About ---------- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(115, 233, 233, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ---------- Skills ---------- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-box {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        .skill-box:hover {
+            background: rgba(115, 233, 233, 0.05);
+            transform: translateX(5px);
+        }
+
+        .skill-box h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .skill-item i {
+            color: var(--secondary);
+        }
+
+        /* ---------- Projects ---------- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 25px rgba(115, 233, 233, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .project-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            color: var(--text);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(115, 233, 233, 0.1);
+            border: 1px solid rgba(115, 233, 233, 0.3);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* ---------- Certifications ---------- */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-badge {
+            background: linear-gradient(135deg, rgba(115, 233, 233, 0.08), rgba(0, 102, 255, 0.08));
+            border: 1px solid rgba(115, 233, 233, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .cert-badge:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-badge h4 {
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-badge p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ---------- Contact ---------- */
+        .contact-section {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .contact-intro {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            background: var(--surface);
+            border: 1px solid var(--card-border);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .contact-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 0 15px rgba(115, 233, 233, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            background: rgba(5, 10, 22, 0.8);
+            border-top: 1px solid rgba(115, 233, 233, 0.2);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ---------- Animations ---------- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50%      { transform: translateY(20px); }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .tagline { font-size: 1rem; padding: 0 1rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .nav-links { gap: 1rem; font-size: 0.8rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 80%; max-width: 300px; }
+            section { padding: 3rem 0; }
+            .section-title { font-size: 1.5rem; }
+            .container { padding: 0 1.5rem; }
+            .profile-photo { width: 90px; height: 90px; min-width: 90px; max-width: 90px; }
+            .stats { grid-template-columns: 1fr; }
+            .cert-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .profile-photo { width: 80px; height: 80px; min-width: 80px; max-width: 80px; }
+            .nav-links { gap: 0.8rem; }
+            .cert-grid { grid-template-columns: 1fr; }
+            .logo { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">PETER PARENO</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <img 
+                src="https://i.ibb.co/Q7k5pCkm/Profile-Photo.jpg" 
+                alt="Peter Pareno profile photo" 
+                class="profile-photo"
+            >
+            <p class="intro">👋 WELCOME</p>
+          <h1>Cybersecurity Specialist</h1>
+            <p class="tagline">
+    Cybersecurity & Digital Forensics Specialist | Securing OT/IT Environments in Manufacturing
+</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Let's Connect</a>
+                <a href="#projects" class="btn btn-secondary">View My Work</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Who I Am</h2>
+            <div class="about-grid">
+               <div class="about-text">
+    <p>
+        I'm a Cybersecurity and Digital Forensics Specialist focused on securing
+        operational technology in manufacturing environments. My work centers on
+        protecting mission-critical CNC systems and complex OT/IT infrastructure,
+        where security failures have real production consequences.
+    </p>
+    <p>
+        My background combines a Master's degree in Cybersecurity & Digital Forensics
+        with a Bachelor's in Computer Science and Information Technology. My Master's
+        research examined access control vulnerabilities in SME manufacturing — a
+        niche where security gaps often go unnoticed until they're exploited.
+    </p>
+    <p>
+        Over 5+ years leading IT operations in manufacturing, I've built security
+        programs from the ground up, responded to real incidents, and helped teams
+        move from reactive firefighting to resilient, standards-based defenses.
+    </p>
+</div>
+                <div class="stats">
+    <div class="stat-card fade-in">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Years in IT & Security Leadership</div>
+    </div>
+    <div class="stat-card fade-in">
+        <div class="stat-number">Master's</div>
+        <div class="stat-label">Cybersecurity & Digital Forensics</div>
+    </div>
+    <div class="stat-card fade-in">
+        <div class="stat-number">CNC · SCADA</div>
+        <div class="stat-label">OT Systems Secured</div>
+    </div>
+    <div class="stat-card fade-in">
+        <div class="stat-number">NIST · IEC 62443</div>
+        <div class="stat-label">Security Frameworks Applied</div>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+    <div class="container">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="skills-grid">
+
+            <div class="skill-box">
+                <h3><i class="fas fa-users-cog"></i> IT & Security Leadership</h3>
+                <div class="skill-item"><i class="fas fa-check"></i> IT Infrastructure & Operations</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Team Leadership & Mentoring</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Risk Management & Compliance</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Security Strategy & Policy</div>
+            </div>
+
+            <div class="skill-box">
+                <h3><i class="fas fa-industry"></i> OT / ICS Security</h3>
+                <div class="skill-item"><i class="fas fa-check"></i> CNC & SCADA System Hardening</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Network Segmentation (IEC 62443)</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Access Control Design (NIST 800-53)</div>
+                <div class="skill-item"><i class="fas fa-check"></i> OT/IT Convergence & Monitoring</div>
+            </div>
+
+            <div class="skill-box">
+                <h3><i class="fas fa-microscope"></i> Digital Forensics</h3>
+                <div class="skill-item"><i class="fas fa-check"></i> Incident Response (NIST 800-61)</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Evidence Collection & Chain of Custody</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Timeline & Root-Cause Analysis</div>
+                <div class="skill-item"><i class="fas fa-check"></i> Threat Hunting & Log Analysis</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in" style="grid-column: 1 / -1; border: 2px solid var(--primary);">
+                    <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Master's Thesis Research Project</h3>
+                    <p style="font-weight: 600; color: var(--primary); margin-bottom: 1rem;">
+                        Mapped access control weaknesses across SME CNC environments by combining
+    technical audits with operator interviews. Delivered a hardening framework
+    for manufacturers with limited security budgets.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Master's Research</span>
+                        <span class="tag">Access Control</span>
+                        <span class="tag">SME Manufacturing</span>
+                        <span class="tag">CNC Security</span>
+                        <span class="tag">Socio-Technical</span>
+                        <span class="tag">Manufacturing</span>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-icon"><i class="fas fa-industry"></i></div>
+                    <h3>Manufacturing Security Architecture</h3>
+                    <p>Designed zero-trust architecture for CNC environments with network segmentation, continuous monitoring, and incident response capabilities.</p>
+                    <div class="project-tags">
+                        <span class="tag">OT Security</span>
+                        <span class="tag">Zero Trust</span>
+                        <span class="tag">CNC</span>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Incident Investigation & Response</h3>
+                    <p>Comprehensive forensic analysis of compromised systems. Evidence collection, timeline reconstruction, threat attribution, and recovery procedures.</p>
+                    <div class="project-tags">
+                        <span class="tag">Digital Forensics</span>
+                        <span class="tag">Incident Response</span>
+                        <span class="tag">Analysis</span>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>System Hardening Initiative</h3>
+                    <p>Implemented NIST & IEC 62443 based hardening standards for IT/OT systems while maintaining production continuity and operational efficiency.</p>
+                    <div class="project-tags">
+                        <span class="tag">Hardening</span>
+                        <span class="tag">NIST/IEC 62443</span>
+                        <span class="tag">Compliance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certs">
+        <div class="container">
+            <h2 class="section-title">Credentials</h2>
+            <div class="cert-grid">
+                <div class="cert-badge">
+                    <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>Master's Degree</h4>
+                    <p>Cybersecurity & Digital Forensics</p>
+                </div>
+                <div class="cert-badge">
+                    <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                    <h4>CEH</h4>
+                    <p>Certified Ethical Hacker</p>
+                </div>
+                <div class="cert-badge">
+                    <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                    <h4>Security+</h4>
+                    <p>CompTIA Certified</p>
+                </div>
+                <div class="cert-badge">
+                    <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                    <h4>Network+</h4>
+                    <p>CompTIA Certified</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-section">
+                <h2 class="section-title">Let's Talk</h2>
+                <p class="contact-intro">I'm passionate about cybersecurity and always interested in connecting with fellow enthusiasts. Whether it's collaborating on security challenges or discussing opportunities—let's connect!</p>
+                <div class="contact-buttons">
+                    <a href="mailto:peterpareno01@gmail.com" class="contact-btn">
+    <i class="fas fa-envelope"></i> Email
+</a>
+
+<a href="https://wa.me/254714185856" class="contact-btn" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+                    <a href="https://www.linkedin.com/in/peter-pareno-70b22781" class="contact-btn" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/Pareno" class="contact-btn" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Peter Pareno. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in, .stat-card, .project-card, .cert-badge').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
